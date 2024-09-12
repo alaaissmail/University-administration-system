@@ -167,10 +167,23 @@ after login you will find all students that already added in your course, then y
 
 the system will calculate the total grade of the course and insert the evaluation.
 
+if there is number of seats lets say 90 seats, and 100 students want to add the course, this problem can be solved by using Heap because it takes the priority:
+```bash
+import heapq
 
+students = [
+    (85%, 'student_2'), (90%, 'student_1'), (70%, 'student_3'),
+]
 
+course_seats = []
+for student in students:
+    heapq.heappush(course_seats, student)
+    if len(course_seats) > 90:
+        heapq.heappop(course_seats)  
 
-
+for priority, student_id in course_seats:
+    print(f"{student_id} ")
+```
 ## Acknowledgements
 
  University administration system was created by:
